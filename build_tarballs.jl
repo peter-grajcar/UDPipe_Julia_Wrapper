@@ -8,7 +8,7 @@ version = v"0.1"
 # Collection of sources required to complete build
 sources = [
     GitSource("https://github.com/ufal/udpipe.git", "3fd3a2c3a76d74fd3b2dcdd31558884502a418c5"),
-	GitSource("https://github.com/peter-grajcar/UDPipe_Julia_Wrapper", "1e9f538501aa9033c681ca822550d793f4a43807")	
+	GitSource("https://github.com/peter-grajcar/UDPipe_Julia_Wrapper", "ce0ca8a760dae668ee2d10d2c07facb5e5b089e4")	
 ]
 
 # Bash recipe for building across all platforms
