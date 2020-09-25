@@ -21,6 +21,8 @@ add_library(udpipejl SHARED src/udpipejl.cpp src/Pipeline.cpp src/Model.cpp src/
 add_library(udpipe SHARED ${files})
 
 target_link_libraries(udpipejl udpipe JlCxx::cxxwrap_julia JlCxx::cxxwrap_julia_stl)
+target_compile_features(udpipejl PUBLIC cxx_std_11)
+set_target_properties(udpipejl PROPERTIES CXX_EXTENSIONS OFF)
 
 install(TARGETS udpipejl
         ARCHIVE DESTINATION lib
