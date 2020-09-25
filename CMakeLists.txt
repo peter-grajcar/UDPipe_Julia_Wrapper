@@ -2,7 +2,6 @@ project(UDPipe_Julia_Wrapper)
 
 cmake_minimum_required(VERSION 3.1)
 
-add_compile_options(-std=c++11)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -25,8 +24,9 @@ add_library(udpipejl SHARED src/udpipejl.cpp src/Pipeline.cpp src/Model.cpp src/
 add_library(udpipe SHARED ${files})
 
 target_link_libraries(udpipejl udpipe JlCxx::cxxwrap_julia JlCxx::cxxwrap_julia_stl)
-target_compile_features(udpipejl PUBLIC cxx_std_11)
 set_target_properties(udpipejl PROPERTIES CXX_EXTENSIONS OFF)
+
+add_compile_options(-std=c++11)
 
 install(TARGETS udpipejl
         ARCHIVE DESTINATION lib
