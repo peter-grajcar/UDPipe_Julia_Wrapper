@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_REQUIRED_FLAGS "-std=c++11")
 add_compile_options(-std=c++11)
-( CMAKE_CXX_FLAGS "-std=c++11" CACHE STRING "compile flags" FORCE)
+set(CMAKE_CXX_FLAGS "-std=c++11" CACHE STRING "compile flags" FORCE)
 
 set(CMAKE_MACOSX_RPATH 1)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
