@@ -21,12 +21,15 @@ list(FILTER files EXCLUDE REGEX ".*/udpipe.cpp$")
 include_directories(udpipejl PUBLIC "${UDPIPE_DIR}/src")
 
 add_library(udpipejl SHARED src/udpipejl.cpp src/Pipeline.cpp src/Model.cpp src/ProcessingError.cpp)
-add_library(udpipe STATIC IMPORTED)
-set_target_properties(udpipe PROPERTIES IMPORTED_LOCATION ${UDPIPE_DIR}/src/libudpipe.a) 
+add_library(udpipe STATIC ${files})
 
 target_link_libraries(udpipejl udpipe JlCxx::cxxwrap_julia JlCxx::cxxwrap_julia_stl)
-set_target_properties(udpipejl PROPERTIES CXX_EXTENSIONS OFF)
 
+set_target_properties(udpipe PROPERTIES
+    CXX_STANDARD 11
+    CXX_STANDARD_REQUIRED ON
+    CXX_EXTENSIONS OFF
+)
 set_target_properties(udpipejl PROPERTIES
     CXX_STANDARD 11
     CXX_STANDARD_REQUIRED ON
