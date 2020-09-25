@@ -1,7 +1,11 @@
 project(UDPipe_Julia_Wrapper)
 
 cmake_minimum_required(VERSION 3.1)
+
+add_compile_options(-std=c++11)
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_MACOSX_RPATH 1)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
