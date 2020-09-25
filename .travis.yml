@@ -1,0 +1,24 @@
+language: julia
+os:
+- linux
+julia:
+- 1.3
+notifications:
+  email: false
+git:
+  depth: 99999999
+cache:
+  timeout: 1000
+  directories:
+  - downloads
+env:
+  global:
+  - BINARYBUILDER_DOWNLOADS_CACHE=downloads
+  - BINARYBUILDER_AUTOMATIC_APPLE=true
+sudo: required
+before_script:
+- cd ..
+- julia -e 'using Pkg; Pkg.add(PackageSpec(name="BinaryBuilder"))'
+script:
+- julia --color=yes UDPipe_Julia_Wrapper/build_tarballs.jl
+
