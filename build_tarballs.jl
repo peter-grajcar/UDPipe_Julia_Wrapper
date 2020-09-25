@@ -8,7 +8,7 @@ version = v"0.1"
 # Collection of sources required to complete build
 sources = [
     GitSource("https://github.com/ufal/udpipe.git", "3fd3a2c3a76d74fd3b2dcdd31558884502a418c5"),
-	
+	GitSource("https://github.com/peter-grajcar/UDPipe_Julia_Wrapper", "1e9f538501aa9033c681ca822550d793f4a43807")	
 ]
 
 # Bash recipe for building across all platforms
@@ -20,17 +20,17 @@ fi
 Julia_PREFIX=$prefix
 mkdir build
 cd build
-cmake -DUDPIPE_DIR=../udpipe -DJulia_PREFIX=$Julia_PREFIX -DCMAKE_FIND_ROOT_PATH=$prefix -DJlCxx_DIR=$prefix/lib/cmake/JlCxx -DCMAKE_INSTALL_PREFIX=$prefix -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TARGET_TOOLCHAIN} $macos_extra_flags -DCMAKE_BUILD_TYPE=Release ..
+cmake -DUDPIPE_DIR=${WORKSPACE}/srcdir/udpipe -DJulia_PREFIX=$Julia_PREFIX -DCMAKE_FIND_ROOT_PATH=$prefix -DJlCxx_DIR=$prefix/lib/cmake/JlCxx -DCMAKE_INSTALL_PREFIX=$prefix -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TARGET_TOOLCHAIN} $macos_extra_flags -DCMAKE_BUILD_TYPE=Release ${WORKSPACE}/srcdir/UDPipe_Julia_Wra
 VERBOSE=ON cmake --build . --config Release --target install -- -j${nproc}
 """
 
 # These are the platforms we will build for by default, unless further
 # platforms are passed in on the command line
 platforms = [
-    Linux(:armv7l; libc=:glibc, compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
-    Linux(:x86_64; libc=:glibc, compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
+#    Linux(:armv7l; libc=:glibc, compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
+#    Linux(:x86_64; libc=:glibc, compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
     MacOS(:x86_64; compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
-    Windows(:x86_64; compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
+#    Windows(:x86_64; compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
 ]
 
 # The products that we will ensure are always built
