@@ -20,13 +20,24 @@ list(FILTER files EXCLUDE REGEX "/rest_server/")
 list(FILTER files EXCLUDE REGEX ".*/udpipe.cpp$")
 include_directories(udpipejl PUBLIC "${UDPIPE_DIR}/src")
 
+add_compile_options(-std=c++11)
+
 add_library(udpipejl SHARED src/udpipejl.cpp src/Pipeline.cpp src/Model.cpp src/ProcessingError.cpp)
 add_library(udpipe SHARED ${files})
 
 target_link_libraries(udpipejl udpipe JlCxx::cxxwrap_julia JlCxx::cxxwrap_julia_stl)
 set_target_properties(udpipejl PROPERTIES CXX_EXTENSIONS OFF)
 
-add_compile_options(-std=c++11)
+set_target_properties(udpipe PROPERTIES
+    CXX_STANDARD 11
+    CXX_STANDARD_REQUIRED ON
+    CXX_EXTENSIONS OFF
+)
+set_target_properties(udpipejl PROPERTIES
+    CXX_STANDARD 11
+    CXX_STANDARD_REQUIRED ON
+    CXX_EXTENSIONS OFF
+)
 
 install(TARGETS udpipejl
         ARCHIVE DESTINATION lib
