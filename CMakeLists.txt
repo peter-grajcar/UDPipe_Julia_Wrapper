@@ -16,7 +16,7 @@ list(FILTER files EXCLUDE REGEX "/rest_server/")
 list(FILTER files EXCLUDE REGEX ".*/udpipe.cpp$")
 include_directories(udpipejl PUBLIC "${UDPIPE_DIR}/src")
 
-add_library(udpipejl SHARED src/udpipejl.cpp src/Pipeline.cpp)
+add_library(udpipejl SHARED src/udpipejl.cpp src/Pipeline.cpp src/Model.cpp src/ProcessingError.cpp)
 add_library(udpipe SHARED ${files})
 
 target_link_libraries(udpipejl udpipe JlCxx::cxxwrap_julia JlCxx::cxxwrap_julia_stl)
