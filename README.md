@@ -1,5 +1,7 @@
 # UDPipe Wrapper for Julia
 
+![CI Status](https://api.travis-ci.org/peter-grajcar/UDPipe_Julia_Wrapper.svg)
+
 ## Compile
 
 You will need both [udpipe](https://github.com/ufal/udpipe) and UDPipe_Julia_Wrapper repositories placed in
