@@ -2,7 +2,7 @@
 # `julia build_tarballs.jl --help` to see a usage message.
 using BinaryBuilder, Pkg
 
-name = "UDPipe_Julia_Wrapper"
+name = "UDPipe"
 version = v"0.1"
 
 # Collection of sources required to complete build
@@ -18,10 +18,6 @@ if [[ $target == *"apple-darwin"* ]]; then
   macos_extra_flags="-DCMAKE_CXX_COMPILER_ID=AppleClang -DCMAKE_CXX_COMPILER_VERSION=10.0.0 -DCMAKE_CXX_STANDARD_COMPUTED_DEFAULT=11 -DCMAKE_CXX_STANDARD=11"
 fi
 Julia_PREFIX=$prefix
-
-cd ${WORKSPACE}/srcdir/udpipe/src
-make lib
-cd ${WORKSPACE}/srcdir
 
 mkdir build
 cd build

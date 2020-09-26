@@ -20,5 +20,15 @@ before_script:
 - cd ..
 - julia -e 'using Pkg; Pkg.add(PackageSpec(name="BinaryBuilder"))'
 script:
-- julia --color=yes UDPipe_Julia_Wrapper/build_tarballs.jl
+- julia --color=yes UDPipe_Julia_Wrapper/build_tarballs.jl --verbose
+deploy:
+  provider: releases
+  api_key:
+  file_glob: true
+  file: products/*
+  skip_cleanup: true
+  on:
+  	repo: peter-grajcar/UDPipe_Julia_Wrapper
+  	tags: true
+
 
