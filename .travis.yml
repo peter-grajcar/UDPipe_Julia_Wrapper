@@ -22,14 +22,14 @@ before_script:
 script:
 - julia --color=yes UDPipe_Julia_Wrapper/build_tarballs.jl --verbose
 deploy:
-- provider: releases
+  provider: releases
   api_key: 
-    -secure: OG8fKO21SV5LmRC3D4Is5drSXv3c891ag9PDjtCYOP8Xliz5yFkQDu14l6PentlFDVQmC3fzenksP2Rg7B9lU6bIEC2ml0jUPiU5Rr5ugRQTstnzwUAPkQAKYl7TDH6gQlsyDdCx3v9i4Vkn0xXiQmNQxR6iyhdeN6nulsY+jlKyAYGqhWFtqfYXv3DBBSuFPqNHngDVsliSZou/n24fDvbyC2ABUOY74fNs6YRZi2gW2c3tF+uKXuZONU2sqRjhUyj9FZUe7kzf18Xc1QyWlQtWn5v4V4zp6xPqdaJXqGOmW1ETXMsNg0H27yYfqc3wBt1uN6lEDLhIUX32lW/vxKTEYbvd1aNmTtgHnW+lMYRq88XZCVZuIfvsN9/vaNXBM/OlOg+DzqNvEGnMWxLnEJn48oWLIj0ta9yW/aB0bcGPQFi+HCAwXqZ+ORTo0L9xVd0q4adDWx4dVXJXFBtolFanRGteUgemTw1ga+igiwt2+W13Vdw9yeSdxbXCGDBhFHBbzLuVbuyVhWof11USh2rp9IE5ogg7XmAOEi8iSVSy9tcMufdOz1RYg5ahHDrR1RMZHHNubYF3Z32we9wdnSdV0iaHR7+HNTIZrPQXuzFFaGhN7/nmZbStg58Rdnb+p2a/wJAa8i5Kyp4rRsxYugKfw2GWgSvHKvSJyrft3vE= 
-- file_glob: true
-- file: products/*
-- skip_cleanup: true
+    secure: OG8fKO21SV5LmRC3D4Is5drSXv3c891ag9PDjtCYOP8Xliz5yFkQDu14l6PentlFDVQmC3fzenksP2Rg7B9lU6bIEC2ml0jUPiU5Rr5ugRQTstnzwUAPkQAKYl7TDH6gQlsyDdCx3v9i4Vkn0xXiQmNQxR6iyhdeN6nulsY+jlKyAYGqhWFtqfYXv3DBBSuFPqNHngDVsliSZou/n24fDvbyC2ABUOY74fNs6YRZi2gW2c3tF+uKXuZONU2sqRjhUyj9FZUe7kzf18Xc1QyWlQtWn5v4V4zp6xPqdaJXqGOmW1ETXMsNg0H27yYfqc3wBt1uN6lEDLhIUX32lW/vxKTEYbvd1aNmTtgHnW+lMYRq88XZCVZuIfvsN9/vaNXBM/OlOg+DzqNvEGnMWxLnEJn48oWLIj0ta9yW/aB0bcGPQFi+HCAwXqZ+ORTo0L9xVd0q4adDWx4dVXJXFBtolFanRGteUgemTw1ga+igiwt2+W13Vdw9yeSdxbXCGDBhFHBbzLuVbuyVhWof11USh2rp9IE5ogg7XmAOEi8iSVSy9tcMufdOz1RYg5ahHDrR1RMZHHNubYF3Z32we9wdnSdV0iaHR7+HNTIZrPQXuzFFaGhN7/nmZbStg58Rdnb+p2a/wJAa8i5Kyp4rRsxYugKfw2GWgSvHKvSJyrft3vE= 
+  file_glob: true
+  file: products/*
+  skip_cleanup: true
   on:
-  - repo: peter-grajcar/UDPipe_Julia_Wrapper
-  - tags: true
+    repo: peter-grajcar/UDPipe_Julia_Wrapper
+    tags: true
 
 
